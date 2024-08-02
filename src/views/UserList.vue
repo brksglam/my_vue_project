@@ -23,6 +23,7 @@
 
 <script>
 import axios from 'axios';
+import io from 'socket.io-client';
 
 export default {
   name: 'UserList',
@@ -33,6 +34,7 @@ export default {
   },
   created() {
     this.getUsers();
+    this.setupSocket();
   },
   methods: {
     async getUsers() {
@@ -66,6 +68,13 @@ export default {
       } catch (error) {
         console.error('Failed to dislike user', error);
       }
+    },
+    setupSocket() {
+      const socket = io('http://localhost:8080');
+      socket.on('likeNotification', (data) => {
+        console.log('Like notification received:', data);
+        // Burada bildirimleri ele almak için gerekli işlemleri yapabilirsiniz
+      });
     }
   }
 };

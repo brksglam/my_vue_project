@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mssql = require('mssql');
-const jwt = require('jsonwebtoken');
 const app = express();
 
 app.use(bodyParser.json());
@@ -46,8 +45,7 @@ app.post('/login', async (req, res) => {
     const request = new mssql.Request();
     const result = await request.query(`SELECT * FROM Users WHERE email='${email}' AND password='${password}'`);
     if (result.recordset.length > 0) {
-      const token = jwt.sign({ id: result.recordset[0].id }, 'secretkey', { expiresIn: '1h' });
-      res.status(200).json({ token });
+      res.status(200).json({ message: 'Giriş başarılı' });
     } else {
       res.status(401).send('Geçersiz email veya şifre');
     }

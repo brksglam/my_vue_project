@@ -42,7 +42,7 @@ export default {
     async getProfile() {
       try {
         const response = await axios.get('http://localhost:8080/profile', {
-          headers: { 'Authorization': localStorage.getItem('token') }
+          headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         });
         this.name = response.data.name;
         this.bio = response.data.bio;
@@ -58,8 +58,9 @@ export default {
           bio: this.bio,
           location: this.location
         }, {
-          headers: { 'Authorization': localStorage.getItem('token') }
+          headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         });
+        alert('Profile updated successfully');
       } catch (error) {
         console.error('Failed to update profile', error);
       }
