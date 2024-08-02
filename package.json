@@ -8,7 +8,8 @@
     "lint": "vue-cli-service lint",
     "prisma": "prisma",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:generate": "prisma generate"
+    "prisma:generate": "prisma generate",
+    "test": "mocha --timeout 10000"
   },
   "dependencies": {
     "@prisma/client": "^5.17.0",
@@ -26,9 +27,12 @@
     "@vue/cli-service": "^5.0.8",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",
+    "chai": "^5.1.1",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^7.0.0",
-    "prisma": "^5.17.0"
+    "mocha": "^10.2.0",
+    "prisma": "^5.17.0",
+    "supertest": "^6.1.6"
   },
   "eslintConfig": {
     "root": true,
