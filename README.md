@@ -7,31 +7,35 @@
 - npm (>= 6.x)
 - SQL Server (MSSQL)
 
+### Clone the Repository
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+```
+## Install Dependencies
+
+```bash
 npm install
-Configure Environment Variables
-Create a .env file in the root directory and add the following environment variables:
+```
+npm install
 
-
+## Configure Environment Variables
+```bash
 DATABASE_URL="sqlserver://sa:Sa*****@DESKTOP-**/database=mydb;encrypt=true"
 JWT_SECRET="your_secret_key"
-Initialize Prisma
-If you encounter issues with automatic Prisma setup, you can download the Prisma CLI manually:
-
-Download the Prisma CLI: Prisma CLI Download
-Extract the CLI to a suitable directory.
-Then, initialize Prisma:
-
+```
+## Initialize Prisma
+```bash
 npx prisma init
 npx prisma migrate dev --name init
-Start the Server
-
+```
+## Start the Server
+```bash
 node server.js
-Running the Project
-Open your browser and navigate to http://localhost:8080.
-API Endpoints
-Register: POST /register
-Request body:
-
+```
+## API Endpoints
+## Register: POST /register
+```bash
 {
   "name": "Test User",
   "email": "test@example.com",
@@ -39,25 +43,26 @@ Request body:
   "bio": "Test Bio",
   "location": "Test Location"
 }
-Login: POST /login
-Request body:
-
+```
+## Login: POST /login
+```bash
 {
   "email": "test@example.com",
   "password": "password"
 }
-Get Users: GET /users
+```
+## Get Users: GET /users
+```bash
 Headers: { "Authorization": "Bearer <token>" }
-Like User: POST /like
-Request body:
-
+```
+## Like User: POST /like
+```bash
 {
   "likedUserId": "<user_id>"
 }
-Headers: { "Authorization": "Bearer <token>" }
-Bulk Insert Users
-Create a script named bulkUsers.js to add multiple users:
-
+```
+## Bulk Insert Users
+```bash
 const mssql = require('mssql');
 
 const config = {
@@ -95,5 +100,13 @@ mssql.connect(config, async err => {
     process.exit();
   }
 });
-To run the bulk insert script:
+
+```
+## To run the bulk insert script:
+```bash
 node bulkUsers.js
+
+```
+
+
+
