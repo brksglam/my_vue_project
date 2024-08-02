@@ -1,4 +1,4 @@
-# NodeJS Challenge
+# VueJs Challenge
 
 ## Project Setup
 
